@@ -1,0 +1,32 @@
+#include<iostream>
+#include<math.h>
+#include<vector>
+using namespace std;
+#define max 100001
+void nhapMang(int a[], int n){
+	for(int i=0;i<n;i++)
+		cin>>a[i];
+}
+bool checkXThuocMang(int x, int a[], int n){
+	for(int i=0;i<n;i++)
+		if(a[i]==x)
+			return true;
+	return false;
+}
+void union2SortedArray(int a[], int n, int b[], int m){
+	vector <int> c;
+	for(int i=1;i<=max;i++)
+		if(checkXThuocMang(i,a,n)||checkXThuocMang(i,b,m))
+			c.push_back(i);
+	for(int i=0;i<c.size();i++)
+		cout<<c[i]<<" ";
+}
+int main(int argc, char *argv[])
+{
+	int n,m, a[max], b[max];
+	cin>>n>>m;
+	nhapMang(a,n);
+	nhapMang(b,m);
+	union2SortedArray(a,n,b,m);
+	return 0;
+}
