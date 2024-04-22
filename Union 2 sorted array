@@ -1,23 +1,28 @@
 #include<iostream>
-#include<math.h>
 #include<vector>
+#define max 10001
 using namespace std;
-#define max 100001
+vector <int> c;
 void nhapMang(int a[], int n){
 	for(int i=0;i<n;i++)
 		cin>>a[i];
 }
-bool checkXThuocMang(int x, int a[], int n){
-	for(int i=0;i<n;i++)
-		if(a[i]==x)
+bool checkDaXet(int x){
+	for(int i=0;i<c.size();i++)
+		if(x==c[i])
 			return true;
 	return false;
 }
 void union2SortedArray(int a[], int n, int b[], int m){
-	vector <int> c;
-	for(int i=1;i<=max;i++)
-		if(checkXThuocMang(i,a,n)||checkXThuocMang(i,b,m))
-			c.push_back(i);
+	int maxPhanTu=b[m-1];
+	if(a[n-1]>b[m-1])
+		maxPhanTu=a[n-1];
+	for(int i=0;i<n;i++)
+		if(checkDaXet(a[i])==false)
+			c.push_back(a[i]);
+	for(int i=0;i<m;i++)
+		if(checkDaXet(b[i])==false)
+			c.push_back(b[i]);
 	for(int i=0;i<c.size();i++)
 		cout<<c[i]<<" ";
 }
