@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+#include<set>
+set <int> a;
+set <int> b;
+set <int> c;
+int n, m;
+void nhapSet(set <int> &a, int n){
+	for(int i=0;i<n;i++){
+		int tmp;
+		cin>>tmp;
+		a.insert(tmp);
+	}
+}
+void union2SortedArray(){
+	for(int i:a)
+		c.insert(i);
+	for(int i:b)
+		c.insert(i);
+}
+void print_set(set <int> c){
+	for(int i:c)
+		cout<<i<<" ";
+}
+int main(int argc, char *argv[])
+{
+	cin>>n>>m;
+	nhapSet(a,n);
+	nhapSet(b,m);
+	union2SortedArray();
+	print_set(c);
+	return 0;
+}
