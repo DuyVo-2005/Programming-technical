@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+#include<math.h>
+#include<iomanip>
+struct POINT{
+	int x;
+	int y;
+};
+void nhapDiem(POINT &a){
+	cin>>a.x>>a.y;
+}
+void diemDoiXungQuaTungDo(POINT a){
+	cout<<-a.x<<" "<<a.y<<endl;
+}
+void diemDoiXungQuaHoanhDo(POINT a){
+	cout<<a.x<<" "<<-a.y<<endl;
+}
+void diemDoiXungQuaToaDoTam(POINT a){
+	cout<<-a.x<<" "<<-a.y<<endl;
+}
+double khoangCachGiua2Diem(POINT a, POINT b){
+	return sqrt(pow(a.x-b.x,2)+pow(a.y-b.y,2));
+}
+int main(int argc, char *argv[])
+{
+	POINT a,b,c;
+	nhapDiem(a);
+	nhapDiem(b);
+	nhapDiem(c);
+	diemDoiXungQuaTungDo(a);
+	diemDoiXungQuaHoanhDo(a);
+	diemDoiXungQuaToaDoTam(a);
+
+	cout<<setprecision(6)<<fixed<<khoangCachGiua2Diem(b,c);//lam tron 6 chu so thap phan
+	return 0;
+}
