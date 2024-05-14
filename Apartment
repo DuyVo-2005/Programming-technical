@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+#include<math.h>
+int N,M,k;//so can ho, kich thuoc, do lech kich thuoc toi da
+int main(int argc, char *argv[])
+{
+	cin>>N>>M>>k;
+	vector<int>a(N);// kich thuoc cac khach hang can
+	for(int i=0;i<N;i++)
+		cin>>a[i];
+	vector<int>b(M);// kich thuoc can ho cung cap
+	for(int j=0;j<M;j++)
+		cin>>b[j];
+	sort(a.rbegin(),a.rend());
+	sort(b.rbegin(),b.rend());
+	int cnt=0;
+	for(int i=0;i<M;i++)
+		for(int j=0;j<N;j++){
+			if(abs(b[i]-a[j])<=k){
+				cnt++;
+				a.erase(a.begin()+j);
+				b.erase(b.begin()+i);
+				i=0;
+				j=0;
+			}
+		}
+	cout<<cnt;
+	return 0;
+}
+/*
+in:
+4 3 5
+60 45 80 60
+30 60 75
+out: 2
+*/
+/*
+//tham khao Tran Canh Nam
+#include<iostream>
+using namespace std;
+#include<vector>
+#include<set>
+int main(int argc, char *argv[])
+{
+	int N,M,k;
+	cin>>N>>M>>k;
+	vector<int>a(N);
+	for(int i=0;i<N;i++)
+		cin>>a[i];
+	sort(a.begin(),a.end());
+	multiset<int>s;
+	for(int i=0;i<M;i++)
+	{
+		int x;
+		cin>>x;
+		s.insert(x);
+	}
+	int cnt=0;
+	for(int i=0;i<N;i++){
+		auto it=s.lower_bound(a[i]-k);
+		if(it==s.end()||*it>a[i]+k)
+			continue;
+		s.erase(it);
+		cnt++;
+	}
+	cout<<cnt;
+	return 0;
+}
+*/
