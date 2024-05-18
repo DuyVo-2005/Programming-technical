@@ -1,0 +1,67 @@
+/* Ma so sinh vien: 23110196
+ Ho va ten sinh vien: Vo Le Khanh Duy
+ Ngay sinh:26/3/2005
+ Lop:231101B-PRTE230385_23_2_04
+*/
+#include<iostream>
+using namespace std;
+#include<vector>
+#define max 200
+vector<int> kq ,c[max][max];
+long long n, k;
+void cong(vector<int> a, vector<int> b)
+{
+	long long max_len = a.size();
+	if (a.size() > b.size())
+	{
+		for (long long i = b.size(); i < a.size(); i++)
+			b.push_back(0);
+	}
+	else
+	{
+		max_len = b.size();
+		for (long long i = a.size(); i < b.size(); i++)
+			a.push_back(0);
+	}
+	int memory = 0;
+	for (long long i = 0; i < max_len; i++)
+	{
+		int tmp = a[i] + b[i] + memory;
+		if (tmp >= 10)
+		{
+			memory = tmp / 10;
+			kq.push_back((tmp % 10));
+		}
+		else
+		{
+			kq.push_back(tmp);
+			memory = 0;
+		}
+	}
+	if (memory != 0)
+	{
+		kq.push_back(memory);
+	}
+}
+void xuat(vector<int>a){
+	for( long long i=a.size()-1;i>=0;i--)
+		cout<<a[i];
+}
+int main(int argc, char *argv[])
+{
+	cin>>n>>k;
+	for(long long i=1;i<=n;i++)
+	{
+		c[i][0].push_back(1);
+		c[i][i].push_back(1);
+	}
+	for(long long i=2;i<=n;i++)
+		for(long long j=1;j<i;j++)
+		{
+			kq.clear();//khoi tao kq de chua ket qua
+			cong(c[i-1][j-1],c[i-1][j]);
+			c[i][j]=kq;//gan c=kq
+		}
+	xuat(c[n][k]);
+	return 0;
+}
