@@ -6,9 +6,9 @@
 #include<iostream>
 using namespace std;
 #include<vector>
-#define Max 10001
-#define infinite 99999999
 #include<algorithm>
+const int Max = 1e8;
+const int infinite = 1e8;
 int n,M;
 int F[Max];//F[i] so to it nhat dung tra so tien i dong, i€[1,M], F[i]=infinite neu ko doi duoc
 int x[Max];//x[i] loai tien cuoi cung dung de doi so tien i dong (chi luu 1 loai tien)
