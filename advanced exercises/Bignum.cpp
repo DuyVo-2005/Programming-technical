@@ -159,9 +159,15 @@ int main(int argc, char *argv[])
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
-	string a;
+	string a, c;
 	int b;
-	cin >> a >> b;
-	cout << longDivision(a, b);
+	//cin >> a >> b;
+	//cout << longDivision(a, b);
+	
+	getline(cin, a);
+	getline(cin, c);
+	//cout << ADD(a, c);
+	
+	cout << MULSTR(a, c);
 	return 0;
 }
