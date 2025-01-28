@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+struct daThuc{
+	float heSo;
+	int bac;
+	int mu;
+};
+daThuc nhapDaThuc(daThuc &a, int bac, int mu)
+int main()
+{
+	
+}
